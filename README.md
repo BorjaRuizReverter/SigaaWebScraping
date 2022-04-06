@@ -9,7 +9,7 @@ Selenium and bs4 packages are both required for webScraping. So, installed them 
 pip install bs4 selenium
 ```
 
-Also, the RegEx Module is need in order to work with Regular Expressions.
+Also, the RegEx Module is needed in order to work with Regular Expressions.
 ```shell
 pip install re
 ```
