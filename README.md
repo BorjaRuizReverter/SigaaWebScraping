@@ -13,7 +13,7 @@ Also, the RegEx Module is need in order to work with Regular Expressions.
 ```shell
 pip install re
 ```
-Finally, install pandas por parsing the data:
+Finally, install pandas for parsing the data:
 ```shell
 pip install pandas
 ```
