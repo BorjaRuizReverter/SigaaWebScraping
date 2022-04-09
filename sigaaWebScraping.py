@@ -97,6 +97,6 @@ All dataframes are concatenated into one
 df = pd.concat([df1, df2, df3, df4, df5, df6, df7, df8, df9, df10, df11], axis = 1)
 
 '''
-Finally, the dataframe is store in a csv file with the estructure of a vcf file
+Finally, the dataframe is stored in a csv file with the estructure of a vcf file
 '''
 df.to_csv(nome_arquivo, index = None, header = True)
