@@ -76,8 +76,8 @@ i=0
 while i<len(names_table):
     s = str(names_table[i])
     result = re.search('<strong>\n\t\t\t\t\t\t\t\t\t(.*)\n', s)
-    #print(result.group(1))
-    df2 = df2.append({'first_name': result.group(1).title()}, ignore_index=True)
+    #df2 = df2.append({'first_name': result.group(1).title()}, ignore_index=True) //Append will be deprecated, so we substituted for concat below
+    df2 = pd.concat([df2, pd.DataFrame([{'first_name': result.group(1).title()}])], ignore_index = True)
     i = i + 1
     
 email_table = table2[8:len(table2)]
@@ -85,10 +85,8 @@ i=2
 while i<len(email_table):
     s = str(email_table[i])
     result = re.search('<em>(.*) </em>', s)
-    print(result)
-    stop
-    print(result.group(1))
-    df6 = df6.append({'email': result.group(1)}, ignore_index=True)
+    #df6 = df6.append({'email': result.group(1)}, ignore_index=True) //Append will be deprecated, so we substituted for concat below
+    df6 = pd.concat([df6, pd.DataFrame([{'email': result.group(1)}])], ignore_index = True)
     i = i + 3
 
 '''
