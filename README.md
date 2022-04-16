@@ -37,8 +37,10 @@ password.send_keys("SENHA")
 driver.find_element(By.LINK_TEXT, "DEPARTAMENTOCÓDIGO_DISCIPLINA - NOME_DISCIPLINA - TURMA").click()
 ```
 
-Finally, save de edition and run the python script!
+Finally, save the edition and run the python script!
 and run the script!
 ```shell
 ./SigaaWebScraping.py
 ```
+
+If it all works, your previously blank vcf file should now be filled with student's names and emails. This file has the suitable format to be imported to Google Contacts. 
