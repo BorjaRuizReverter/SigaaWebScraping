@@ -86,7 +86,7 @@ while i<len(email_table):
     s = str(email_table[i])
     result = re.search('<em>(.*) </em>', s)
     #df6 = df6.append({'email': result.group(1)}, ignore_index=True) //Append will be deprecated, so we substituted for concat below
-    df6 = pd.concat([df6, pd.DataFrame([{'email': result.group(1)}])], ignore_index = True)
+    df6 = pd.concat([df6, pd.DataFrame([{'email': result.group(1).lower()}])], ignore_index = True)
     i = i + 3
 
 '''
@@ -98,3 +98,4 @@ df = pd.concat([df1, df2, df3, df4, df5, df6, df7, df8, df9, df10, df11], axis =
 Finally, the dataframe is stored in a csv file with the estructure of a vcf file 
 '''
 df.to_csv(nome_arquivo, index = None, header = True)
+driver.close();
