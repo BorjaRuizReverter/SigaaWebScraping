@@ -31,7 +31,7 @@ Then move to repository folder cloned:
 cd SigaaWebScraping
 ```
 and open the python script and edit it, adding your login details and group details in the lines below
-```shell
+```python
 username.send_keys("USUARIO")
 password.send_keys("SENHA")
 driver.find_element(By.LINK_TEXT, "DEPARTAMENTOCÓDIGO_DISCIPLINA - NOME_DISCIPLINA - TURMA").click()
