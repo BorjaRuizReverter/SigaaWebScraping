@@ -38,7 +38,6 @@ driver.find_element(By.LINK_TEXT, "DEPARTAMENTOCÓDIGO_DISCIPLINA - NOME_DISCIPL
 ```
 
 Finally, save the edition and run the python script!
-and run the script!
 ```shell
 ./SigaaWebScraping.py
 ```
