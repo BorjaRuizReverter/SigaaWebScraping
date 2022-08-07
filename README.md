@@ -13,7 +13,7 @@ pip install bs4 selenium
 
 Also, the RegEx Module is needed in order to work with Regular Expressions.
 ```shell
-pip install re
+pip install regex
 ```
 Finally, install pandas for parsing the data:
 ```shell
