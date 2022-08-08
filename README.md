@@ -19,7 +19,7 @@ Finally, install pandas for parsing the data:
 ```shell
 pip install pandas
 ```
-You will also need a webdriver in order to the script manipulate the browser automaticly. Firefox, Internet Explorer, Safari, Opera, Chrome and Edge provide their own webdriver. However, the most reliable one is the GeckoDriver from Firefox. You will need both the browser and the webdriver, so download Firefox from [here](https://www.mozilla.org/en-US/firefox/new/) and the Geckodriver from [here](https://github.com/mozilla/geckodriver/releases/download/v0.30.0/geckodriver-v0.30.0-win64.zip) or [here](https://github.com/mozilla/geckodriver/releases), depending on your OS.
+You will also need a webdriver in order to the script manipulate the browser automaticly. Firefox, Internet Explorer, Safari, Opera, Chrome and Edge provide their own webdriver. However, the most reliable one is the GeckoDriver from Firefox. You will need both the browser and the webdriver, so download Firefox from [here](https://www.mozilla.org/en-US/firefox/new/) and the Geckodriver from [here](https://github.com/mozilla/geckodriver/releases), depending on your OS.
 
 Once you have all installed, you can clone this repository by open a terminal and typing:
 ```shell
