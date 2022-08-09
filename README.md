@@ -36,10 +36,16 @@ username.send_keys("USUARIO")
 password.send_keys("SENHA")
 driver.find_element(By.LINK_TEXT, "DEPARTAMENTOCÓDIGO_DISCIPLINA - NOME_DISCIPLINA - TURMA").click()
 ```
-
+Python files may not be executed by the Python interpreter if the path to these py files are not in the $PATH environment. So, add this directory to $PATH: 
+```shell
+export PATH=/home/WRITE_HERE_YOUR_USER_NAME/WRITE_HERE_THE_REST_OF_THE_PATH_UP_TO_SigaaWebScraping_DIRECTORY:$PATH
+```
 Finally, save the edition and run the python script!
 ```shell
 ./SigaaWebScraping.py
 ```
-
+or 
+```shell
+python SigaaWebScraping.py
+```
 If it all works, your previously blank vcf file should now be filled with student's names and emails. This file has the suitable format to be imported to Google Contacts. 
