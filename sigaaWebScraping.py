@@ -81,7 +81,7 @@ while i<len(names_table):
     i = i + 1
     
 email_table = table2[8:len(table2)]
-i=2
+i=3
 while i<len(email_table):
     s = str(email_table[i])
     result = re.search('<em>(.*) </em>', s)
