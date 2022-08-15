@@ -48,4 +48,4 @@ or
 ```shell
 python SigaaWebScraping.py
 ```
-If it all works, your previously blank vcf file should now be filled with student's names and emails. This file has the suitable format to be imported to Google Contacts. 
+If it all works, your previously blank vcf file should now be filled with student's names and emails. This file has the suitable format to be imported from Google Contacts. 
