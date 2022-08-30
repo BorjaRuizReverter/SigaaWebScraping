@@ -40,7 +40,7 @@ driver.find_element(By.ID, "form:portalDocente").click()
 This will make the webdriver choose the target group. For that, please insert the group details here
 The method find_element_by_link_text is deprecated. We substitued for find_element(By.LINK_TEXT, "text")
 '''
-driver.find_element(By.LINK_TEXT, "DEPARTAMENTOCÓDIGO_DISCIPLINA - NOME_DISCIPLINA - TURMA").click()
+driver.find_element(By.LINK_TEXT, "DEPARTAMENTOCÓDIGO_DISCIPLINA - NOME_DISCIPLINA - T01").click()
 
 '''
 This will prepare the vcf file for writting
