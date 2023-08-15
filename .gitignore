@@ -1,2 +1,4 @@
-geckodriver.log
-sigaaWebScraping_proprio.py
+*.log
+*.exe
+*.vcf
+*_proprio.py
