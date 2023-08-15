@@ -2,3 +2,4 @@
 *.exe
 *.vcf
 *_proprio.py
+geckodriver
