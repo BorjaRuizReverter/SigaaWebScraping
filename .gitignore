@@ -3,3 +3,4 @@
 *.vcf
 *_proprio.py
 geckodriver
+chromedriver
