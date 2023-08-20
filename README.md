@@ -3,25 +3,21 @@ This repository is aimed at scraping data from the "Sistema Integrado de Gestão
 
 This repository assumes that you have a registered access to the SIGAA platform as professor. Otherwise, it will not be useful.
 
-## Pre-Installation
+## Installation
 Make sure you are using the latest version of Python. Otherwise, download if from [here](https://www.python.org/downloads/)
 
-Selenium and bs4 packages are both required for webScraping. So, installed them by typing in the terminal:
+After that install all the required packages:
 ```shell
-pip install bs4 selenium
+pip install -r requirements.txt
 ```
 
-Also, the RegEx Module is needed in order to work with Regular Expressions.
-```shell
-pip install regex
-```
-Finally, install pandas for parsing the data:
-```shell
-pip install pandas
-```
-You will also need a webdriver in order to the script manipulate the browser automaticly. Firefox, Internet Explorer, Safari, Opera, Chrome and Edge provide their own webdriver. However, the most reliable one is the GeckoDriver from Firefox. You will need both the browser and the webdriver, so download Firefox from [here](https://www.mozilla.org/en-US/firefox/new/) and the Geckodriver from [here](https://github.com/mozilla/geckodriver/releases), depending on your OS.
+You will also need a webdriver in order to the script manipulate the browser automaticly. Firefox, Internet Explorer, Safari, Opera, Chrome and Edge provide their own webdriver. For this you will need both the browser and the webdriver. Note that it depends on your OS!
 
-Once you have all installed, you can clone this repository by open a terminal and typing:
+In case you opt for Chrome, download the browser from [here](https://www.google.com/chrome/) and its webdriver (Chromedriver) from [here](https://googlechromelabs.github.io/chrome-for-testing/#stable).
+
+In case you prefer Firefox, download the browser from [here](https://www.mozilla.org/en-US/firefox/new/) and its webdriver (Geckodriver) from [here](https://github.com/mozilla/geckodriver/releases). 
+
+Once you have all that installed, you can clone this repository by open a terminal and typing:
 ```shell
 git clone https://github.com/BorjaRuizReverter/SigaaWebScraping.git
 ```
