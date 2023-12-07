@@ -9,13 +9,37 @@ from bs4 import BeautifulSoup
 from selenium.webdriver.common.by import By
 
 '''
-This will open the webdriver and the target website
-Here we will use the Geckdriver from Firefox for being the most reliable
-Make sure it is in the same folder
+The following lines tries to use different webdrivers
+If it succeeds it will scrap the targeted website
 '''
-driver = webdriver.Firefox()
-#driver = webdriver.Ie()
-#driver = webdriver.Chrome()
+try:
+    driver = webdriver.Firefox()
+except:
+    print("The webdrive from Firefox failed. We try another...")
+else:
+    print("The webdrive from Firefox succeed! So let it scrap...")
+
+try:
+    driver = webdriver.Chrome()
+except:
+    print("The webdrive from Chrome failed. We try another...")
+else:
+    print("The webdrive from Chrome succeed! So let it scrap...")
+
+try:
+    driver = webdriver.Ie()
+except:
+    print("The webdrive from InternetExplorer failed. We try another...")
+else:
+    print("The webdrive from InternetExplorer succeed! So let it scrap...")
+
+try:
+    driver = webdriver.Edge()
+except:
+    print("The webdrive from MicrosoftEdge failed. We try another...")
+else:
+    print("The webdrive from MicrosoftEdge succeed! So let it scrap...")
+
 driver.get("https://sigaa.ufpb.br/sigaa/logon.jsf")
 print(driver.title)
 
