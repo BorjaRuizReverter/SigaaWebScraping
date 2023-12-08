@@ -15,6 +15,14 @@ username = input ('Please type your login name: ')
 passwd = input ('Please type your password: ')
 
 '''
+The webdrivers available depends on the OS. The script needs to know this to proceed accordingly. 
+'''
+import platform
+os = platform.system()
+print("It seems that you are on: ", os)
+print("This script needs to know your OS to proceed accordingly.")
+
+'''
 The following lines tries to use different webdrivers
 If it succeeds it will scrap the targeted website
 '''
