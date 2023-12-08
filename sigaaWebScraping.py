@@ -9,6 +9,12 @@ from bs4 import BeautifulSoup
 from selenium.webdriver.common.by import By
 
 '''
+The webdriver will need login creds to login"
+'''
+username = input ('Please type your login name: ')
+passwd = input ('Please type your password: ')
+
+'''
 The following lines tries to use different webdrivers
 If it succeeds it will scrap the targeted website
 '''
@@ -44,15 +50,15 @@ driver.get("https://sigaa.ufpb.br/sigaa/logon.jsf")
 print(driver.title)
 
 '''
-This will make login at the target website. Please insert your login details here in order to continue
+This will make login at the targeted website. Please insert your login details here in order to continue
 The method find_element_by_id is deprecated. We substitued for find_element
 '''
 username = driver.find_element(By.ID, "form:login")
 username.clear()
-username.send_keys("USUARIO")
+username.send_keys(username)
 password = driver.find_element(By.ID, "form:senha")
 password.clear()
-password.send_keys("SENHA")
+password.send_keys(passwd)
 
 '''
 This will make the webdriver navigate to the target group
