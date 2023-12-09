@@ -7,12 +7,17 @@ import pandas as pd
 from selenium import webdriver
 from bs4 import BeautifulSoup
 from selenium.webdriver.common.by import By
-
+import maskpass
+ 
 '''
 The webdriver will need login creds to login"
 '''
 username = input ('Please type your login name: ')
-passwd = input ('Please type your password: ')
+
+'''
+This is for echoing the password and mask it with asterisks(*)
+'''
+passwd = maskpass.askpass(prompt="Please type your password: ", mask="*")
 
 '''
 The webdrivers available depends on the OS. The script needs to know this to proceed accordingly. 
@@ -20,7 +25,7 @@ The webdrivers available depends on the OS. The script needs to know this to pro
 import platform
 os = platform.system()
 print("It seems that you are on: ", os)
-print("This script needs to know your OS to proceed accordingly.")
+print("Sorry, but this script needs to know your OS to proceed accordingly.")
 
 '''
 The following lines tries to use different webdrivers
