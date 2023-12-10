@@ -12,7 +12,7 @@ import maskpass
 '''
 The webdriver will need login creds to login"
 '''
-username = input ('Please type your login name: ')
+user = input('Please type your login name: ')
 
 '''
 This is for echoing the password and mask it with asterisks(*)
@@ -24,43 +24,58 @@ The webdrivers available depends on the OS. The script needs to know this to pro
 '''
 import platform
 os = platform.system()
-print("It seems that you are on: ", os)
+print("It seems that you are on:", os)
 print("Sorry, but this script needs to know your OS to proceed accordingly.")
 
 '''
-The following lines tries to use different webdrivers
+The following lines try different webdrivers, depending on the OS.
 If it succeeds it will scrap the targeted website
 '''
-try:
-    driver = webdriver.Firefox()
-except:
-    print("The webdrive from Firefox failed. We try another...")
-else:
-    print("The webdrive from Firefox succeed! So let it scrap...")
-
-try:
-    driver = webdriver.Chrome()
-except:
-    print("The webdrive from Chrome failed. We try another...")
-else:
-    print("The webdrive from Chrome succeed! So let it scrap...")
-
-try:
-    driver = webdriver.Ie()
-except:
-    print("The webdrive from InternetExplorer failed. We try another...")
-else:
-    print("The webdrive from InternetExplorer succeed! So let it scrap...")
-
-try:
-    driver = webdriver.Edge()
-except:
-    print("The webdrive from MicrosoftEdge failed. We try another...")
-else:
-    print("The webdrive from MicrosoftEdge succeed! So let it scrap...")
-
+if os=='Linux' or 'Darwin':
+    try:
+        driver = webdriver.Firefox()
+    except:
+        print("The webdrive from Firefox failed. We try another...")
+        try:
+            driver = webdriver.Chrome()
+        except:
+            print("The webdrive from Chrome also failed.")
+            print('We ran out of webdrivers for your OS. The script must stop.')
+        else:
+            print("The webdrive from Chrome succeed, so let it scrape!")
+    else:
+        print("The webdrive from Firefox succeed, so let it scrape!")
+elif os=='Windows':
+    try:
+        driver = webdriver.Ie()
+    except:
+        print("The webdrive from InternetExplorer failed. We try another...")
+        try:
+            driver = webdriver.Edge()
+        except:
+            print("The webdrive from Edge failed. We try another...")
+            try:
+                driver = webdriver.Chrome()
+            except:
+                print("The webdrive from Chrome also failed.")
+                print('We ran out of webdrivers for your OS. The script must stop.')
+            else:
+                print("The webdrive from Chrome succeed, so let it scrape!")
+        else:
+            print("The webdrive from Edge succeed, so let it scrape!")
+    else:
+        print("The webdrive from InternetExplorer succeed, so let it scrape!")
+elif os=='MacOS':    
+    try:
+        driver = webdriver.Safari()
+    except:
+        print("The webdrive from Safari failed.")
+        print('We ran out of webdrivers for your OS. The script must stop.')    
+    else:
+        print("The webdrive from Safari succeed, so let it scrape!")
+        
 driver.get("https://sigaa.ufpb.br/sigaa/logon.jsf")
-print(driver.title)
+print("We are scrapping:", driver.title)
 
 '''
 This will make login at the targeted website. Please insert your login details here in order to continue
@@ -68,7 +83,7 @@ The method find_element_by_id is deprecated. We substitued for find_element
 '''
 username = driver.find_element(By.ID, "form:login")
 username.clear()
-username.send_keys(username)
+username.send_keys(user)
 password = driver.find_element(By.ID, "form:senha")
 password.clear()
 password.send_keys(passwd)
