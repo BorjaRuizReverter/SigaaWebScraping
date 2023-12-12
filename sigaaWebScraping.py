@@ -2,12 +2,13 @@
 Import the required packages
 '''
 import re
-from tracemalloc import stop
+#from tracemalloc import stop
 import pandas as pd
 from selenium import webdriver
 from bs4 import BeautifulSoup
 from selenium.webdriver.common.by import By
 import maskpass
+import time
  
 '''
 The webdriver will need login creds to login"
@@ -89,16 +90,41 @@ password.clear()
 password.send_keys(passwd)
 
 '''
-This will make the webdriver navigate to the target group
+This will make the webdriver navigate to the targeted group
 '''
 driver.find_element(By.ID, "form:entrar").click()
 driver.find_element(By.ID, "form:portalDocente").click()
 
 '''
-This will make the webdriver choose the target group. For that, please insert the group details here
+The server might delay its responds a bit.
+We need to slow down the client webdriver a bit to avoid errors.
+'''
+time.sleep(1)
+
+'''
+Now, the url contaning the disciplines is scrapped, so that the user chooses one.
+'''
+soupDisciplines = BeautifulSoup(driver.page_source, 'html.parser')
+disciplines_table = soupDisciplines.find_all(name = 'strong')
+disciplines_table = disciplines_table[0:len(disciplines_table)]
+i=0
+disciplines=[]
+while i<len(disciplines_table):
+    s = str(disciplines_table[i])
+    result = re.search('GDQF.*T..', s)
+    disciplines.append(result.group())    
+    i = i + 1
+
+print('These are you disciplines for the present period: ')
+for j in range(0,len(disciplines)):
+    print(disciplines[j])
+
+'''
+Now the webdriver choose the targeted discipline. For that, insert here the discipline details here
 The method find_element_by_link_text is deprecated. We substitued for find_element(By.LINK_TEXT, "text")
 '''
-driver.find_element(By.LINK_TEXT, "DEPARTAMENTOCÓDIGO_DISCIPLINA - NOME_DISCIPLINA - T01").click()
+#driver.find_element(By.LINK_TEXT, "DEPARTAMENTOCÓDIGO_DISCIPLINA - NOME_DISCIPLINA - T01").click()
+driver.find_element(By.LINK_TEXT, disciplines[0]).click()
 
 '''
 This will prepare the vcf file for writting
@@ -106,7 +132,7 @@ This will prepare the vcf file for writting
 nome_arquivo = r'contactos_sigaa.vcf'
 
 '''
-This will make the webdriver finally reach the target url
+This will make the webdriver finally reach the targeted url
 '''
 driver.find_element(By.LINK_TEXT, "Participantes").click()
 
