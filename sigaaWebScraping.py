@@ -9,6 +9,7 @@ from bs4 import BeautifulSoup
 from selenium.webdriver.common.by import By
 import maskpass
 import time
+import inquirer
  
 '''
 The webdriver will need login creds to login"
@@ -102,7 +103,7 @@ We need to slow down the client webdriver a bit to avoid errors.
 time.sleep(1)
 
 '''
-Now, the url contaning the disciplines is scrapped, so that the user chooses one.
+Now, the url contaning the disciplines is scrapped, so that the user choose one.
 '''
 soupDisciplines = BeautifulSoup(driver.page_source, 'html.parser')
 disciplines_table = soupDisciplines.find_all(name = 'strong')
@@ -120,11 +121,23 @@ for j in range(0,len(disciplines)):
     print(disciplines[j])
 
 '''
-Now the webdriver choose the targeted discipline. For that, insert here the discipline details here
-The method find_element_by_link_text is deprecated. We substitued for find_element(By.LINK_TEXT, "text")
+With the following lines, the user will have to choose one discipline on the terminal.
+'''
+#driver.minimize_window()
+questions = [
+  inquirer.List('Disciplines',
+                message="Choose one discipline to proceed",
+                choices=[disciplines[0], disciplines[1]],
+            ),
+]
+answers = inquirer.prompt(questions)
+print ('You have chosen:', answers['Disciplines'])
+
+'''
+The method find_element_by_link_text is deprecated. It was substitued for find_element(By.LINK_TEXT, "text")
 '''
 #driver.find_element(By.LINK_TEXT, "DEPARTAMENTOCÓDIGO_DISCIPLINA - NOME_DISCIPLINA - T01").click()
-driver.find_element(By.LINK_TEXT, disciplines[0]).click()
+driver.find_element(By.LINK_TEXT, answers['Disciplines']).click()
 
 '''
 This will prepare the vcf file for writting
