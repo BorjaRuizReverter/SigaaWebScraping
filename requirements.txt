@@ -7,8 +7,8 @@
 #re
 #tracemalloc
 #platform
+#time
 
-time
 pandas
 selenium
 bs4
