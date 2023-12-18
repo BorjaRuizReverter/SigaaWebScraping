@@ -2,7 +2,6 @@
 Import the required packages
 '''
 import re
-#from tracemalloc import stop
 import pandas as pd
 from selenium import webdriver
 from bs4 import BeautifulSoup
@@ -10,7 +9,8 @@ from selenium.webdriver.common.by import By
 import maskpass
 import time
 import inquirer
- 
+import platform
+
 '''
 The webdriver will need login creds to login"
 '''
@@ -24,7 +24,6 @@ passwd = maskpass.askpass(prompt="Please type your password: ", mask="*")
 '''
 The webdrivers available depends on the OS. The script needs to know this to proceed accordingly. 
 '''
-import platform
 os = platform.system()
 print("It seems that you are on:", os)
 print("Sorry, but this script needs to know your OS to proceed accordingly.")
@@ -195,4 +194,5 @@ df = pd.concat([df1, df2, df3, df4, df5, df6, df7, df8, df9, df10, df11], axis =
 Finally, the dataframe is stored in a csv file with the estructure of a vcf file 
 '''
 df.to_csv(nome_arquivo, index = None, header = True)
+print('The webscrapping is done and your vcf file is ready!')
 driver.close()
