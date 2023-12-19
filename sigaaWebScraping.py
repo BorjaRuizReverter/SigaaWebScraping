@@ -122,7 +122,7 @@ for j in range(0,len(disciplines)):
 '''
 With the following lines, the user will have to choose one discipline on the terminal.
 '''
-#driver.minimize_window()
+driver.minimize_window()
 questions = [
   inquirer.List('Disciplines',
                 message="Choose one discipline to proceed",
