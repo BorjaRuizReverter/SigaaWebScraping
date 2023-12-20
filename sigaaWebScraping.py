@@ -10,7 +10,7 @@ import maskpass
 import time
 import inquirer
 import platform
-
+import sys
 '''
 The webdriver will need login creds to login"
 '''
@@ -25,8 +25,10 @@ passwd = maskpass.askpass(prompt="Please type your password: ", mask="*")
 The webdrivers available depends on the OS. The script needs to know this to proceed accordingly. 
 '''
 os = platform.system()
+python_version = sys.version
 print("It seems that you are on:", os)
-print("Sorry, but this script needs to know your OS to proceed accordingly.")
+print("And your python version is: ", python_version)
+print("Sorry, but this script needs to know some details to proceed accordingly.")
 
 '''
 The following lines try different webdrivers, depending on the OS.
