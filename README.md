@@ -34,7 +34,7 @@ pip install -r requirements.txt
 ```
 
 ## Usage
-Finally, save the edition and run the python script. Type this if you are on Linux:
+Finally, it is just running the python script. So, type this if you are on Linux:
 ```Shell
 python3 SigaaWebScraping.py
 ```
