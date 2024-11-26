@@ -151,6 +151,13 @@ This will make the webdriver finally reach the targeted url
 driver.find_element(By.LINK_TEXT, "Participantes").click()
 
 '''
+Eventually, the scrape ends up with empty dataframes.
+Initially, I thought this was because of hidden inputs or because the server acknownledges a non-human webdriver, but not.
+Just another time delay here resolved this issue.
+'''
+time.sleep(5)
+
+'''
 The following lines grab, parse and format the data
 '''
 soup = BeautifulSoup(driver.page_source, 'html.parser')
@@ -170,6 +177,7 @@ df10 = pd.DataFrame(columns = ['p_code'])
 df11 = pd.DataFrame(columns = ['country'])
 
 names_table = table[6:len(table)]
+
 i=0
 while i<len(names_table):
     s = str(names_table[i])
