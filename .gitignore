@@ -2,5 +2,8 @@
 *.exe
 *.vcf
 *_proprio.py
+*.ipynb
+*.out
+*.test
 geckodriver
 chromedriver
