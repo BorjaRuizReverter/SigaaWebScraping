@@ -164,6 +164,12 @@ soup = BeautifulSoup(driver.page_source, 'html.parser')
 table = soup.find_all(name = 'strong')
 table2 = soup.find_all(name = 'em')
 
+'''
+Activate the following lines just to diagnose errors regarding empty or miswritten vcf file
+'''
+#print(table)
+#print(table2)
+
 df1 = pd.DataFrame(columns = ['last_name'])
 df2 = pd.DataFrame(columns = ['first_name'])
 df3 = pd.DataFrame(columns = ['org'])
