@@ -90,12 +90,20 @@ username.send_keys(user)
 password = driver.find_element(By.ID, "form:senha")
 password.clear()
 password.send_keys(passwd)
+driver.find_element(By.ID, "form:entrar").click()
 
 '''
-This will make the webdriver navigate to the targeted group
+This will make the webdriver navigate to the targeted group only if login was OK
 '''
-driver.find_element(By.ID, "form:entrar").click()
-driver.find_element(By.ID, "form:portalDocente").click()
+from selenium.common.exceptions import NoSuchElementException
+try:
+    driver.find_element(By.ID, "form:portalDocente").click()
+except NoSuchElementException:
+    print("It seems your login details are wrong. Please retry.")
+    sys.exit()
+else:
+    print("Your login details are OK. Let's continue!")
+    #driver.click()
 
 '''
 The server might delay its responds a bit.
